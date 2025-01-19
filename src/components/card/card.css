@@ -1,0 +1,54 @@
+.row {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    gap: 20px;
+}
+
+.card {
+    width: 160px;
+    height: 250px;
+    padding: 0;
+    border: none;
+    position: relative;
+    cursor: pointer;
+
+}
+
+
+
+.cover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .cover-img {
+    opacity: 1;
+}
+
+.cover-logo {
+    position: absolute;
+    width: 40%;
+    top: 35%;
+    left: 30%;
+    line-height: 250px;
+    opacity: 0;
+    transition: all .5s ease;
+    scale: .8;
+}
+
+.card:hover .cover-logo {
+    opacity: 1;
+    scale: 1.1;
+}
+
+.card-img-overlay .card-text {
+    text-align: center;
+}

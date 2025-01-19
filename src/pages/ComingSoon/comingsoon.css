@@ -1,0 +1,10 @@
+.filter {
+    background-color: #fff;
+    color: #000;
+    padding: 3px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}

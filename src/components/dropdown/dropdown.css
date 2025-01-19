@@ -1,0 +1,42 @@
+.season-detail {
+    background-color: #262729;
+    height: max-content;
+}
+.season-detail .btn-secondary{
+    background-color: transparent !important;
+    border: none;
+}
+.season-detail .btn-secondary:hover{
+    background-color: none !important;
+    border-color: none !important;
+}
+.season-detail .btn-secondary.active{
+    background-color: none !important;
+    border-color: none !important;
+}
+
+.dropdown-menu{
+    max-height: 150px;
+    overflow-y: auto;
+}
+.div-button {
+    background-color: #353638;
+    border-radius: 3px;
+    color: #aaa;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    width: 250px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.div-button:hover {
+    background-color: #08ab4b;
+    color: #fff;
+}
+
+.play-icon {
+    font-size: 10px;
+}

@@ -1,0 +1,97 @@
+.main-div {
+    background-color: #18191a;
+    width: 100%;
+}
+
+.section {
+    height: 75vh;
+    background-color: #282828;
+}
+
+.section__spans {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #555555;
+}
+
+.section-span {
+    font-size: 20px;
+}
+
+.section-span1 {
+    font-size: 10px;
+}
+
+.div {
+    padding: 5px 30px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.face {
+    background-color: #4267b2;
+}
+
+.twit {
+    background-color: #000000;
+}
+
+.what {
+    background-color: #25d366;
+}
+
+.messe {
+    background-color: #4267b2;
+}
+
+.redd {
+    background-color: #ff4500;
+}
+
+.tele {
+    height: 31px;
+    width: 110px;
+    font-size: 15px;
+    background-color: #0088cc;
+}
+
+.section1 {
+    color: #ececff;
+}
+
+.trending-div {
+    background-color: #08ab4b;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 3px;
+}
+
+.list-div {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    gap: 10px;
+    color: #aaaaaa;
+    cursor: pointer;
+}
+
+.list-div.active {
+    color: #08ab4b;
+}
+
+.list-div:hover {
+    color: #08ab4b;
+}
+
+.view{
+    color: #08ab4b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}

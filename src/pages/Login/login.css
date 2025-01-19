@@ -1,0 +1,80 @@
+.login {
+  background-color: #18191a;
+  opacity: 1;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.login .header {
+  position: relative;
+  width: 50%;
+}
+.close-icon {
+  font-size: 20px;
+  position: absolute;
+  right: -100px;
+  top: -10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.close-icon:hover {
+  color: #219a4e;
+}
+.form {
+  border-radius: 10px;
+  background-color: #252628;
+  width: 480px;
+}
+.login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.login form .header h4 {
+  font-size: 18px;
+}
+.login .form label {
+  color: #77797a;
+  font-size: 12px;
+  font-weight: 600;
+}
+.form_forgot {
+  color: #219a4e;
+}
+form input::placeholder {
+  padding-left: 10px;
+  color: #656a74;
+}
+form input {
+  background-color: #454647;
+  border: none;
+}
+form .login-btn {
+  background-color: #219a4e;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+}
+.form .footer {
+  color: #fff;
+  border-top: 1px solid #343a40;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  padding-top: 20px;
+}
+.form .footer h4 {
+  font-size: 14px;
+}
+.form .footer h4 span {
+  color: #219a4e;
+}

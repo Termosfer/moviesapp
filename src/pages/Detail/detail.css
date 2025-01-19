@@ -1,0 +1,137 @@
+.bg {
+    background-color: #262729;
+}
+
+.detail-img {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+}
+
+.detail-img-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.detail-img>.detail-img-logo {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 10%;
+    height: 20%;
+    transform-origin: -50%, -50%;
+    animation-name: logo;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+
+@keyframes logo {
+    0% {
+        scale: .9;
+    }
+
+    50% {
+        scale: 1.1;
+    }
+
+    100% {
+        scale: .9;
+    }
+}
+
+.detail-img>img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.poster-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.details-title {
+    border-right: 2px solid #333537;
+}
+
+.details-title .details-inf .first-p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    background-color: #3898d2;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.details-title .details-inf .second-p {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000000;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.details-title .details-inf .third-p {
+    padding: 5px 10px;
+    color: #f4a803;
+    font-weight: 600;
+}
+
+.details-title span {
+    color: #767462;
+}
+
+
+.details-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #07ab4c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.icon {
+    font-size: 16px;
+}
+
+.btn2 {
+    background-color: #fff;
+    color: #000000;
+}
+
+.voted {
+    height: 3px;
+    background-color: #07ab4c;
+    border-radius: 10px;
+}
+
+.like {
+    width: 150px;
+    height: 30px;
+    background-color: #17a2b7;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.d {
+    background-color: #dc3546;
+}
