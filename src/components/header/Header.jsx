@@ -56,7 +56,7 @@ const Header = () => {
                    <button className="btn" type="submit" >LOGIN</button>
                     {<div className='w-100 d-flex flex-column search'>
                         {
-                            data &&  data?.results.slice(0, 4).map((item, index) => {
+                            data &&  data?.results.slice(0, 4).map((item) => {
                                 const releaseYear = new Date(item.media_type == "tv" ? item.first_air_date : item.release_date).getFullYear();
                                 return (
                                     <div className='d-flex align-items-center gap-3 p-2 sub-search' key={item.id} onClick={()=>clickHandle(item.id)}>

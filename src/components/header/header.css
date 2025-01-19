@@ -1,72 +1,71 @@
 .navbar {
-    background-color: #262728;
+  background-color: #262728;
 }
 
 .container-fluid {
-    color: red !important;
+  color: red !important;
 }
 
 a {
-    color: #fff;
+  color: #fff;
 }
 
 .btn {
-    background-color: #08ab4b;
-    color: #fff;
+  background-color: #08ab4b !important;
+  color: #fff !important;
 }
 
 form {
-    position: relative;
+  position: relative;
 }
 
-form>.search {
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 0px;
-    list-style: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    z-index: 9999;
+form > .search {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  list-style: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 9999;
 }
 
 .sub-search {
-    border-bottom: .5px solid #575757;
-    background-color: #353638;
-    cursor: pointer;
+  border-bottom: 0.5px solid #575757;
+  background-color: #353638;
+  cursor: pointer;
 }
 
 .sub-search:hover {
-    border-bottom: .5px solid #575757;
-    background-color: #555657;
-
+  border-bottom: 0.5px solid #575757;
+  background-color: #555657;
 }
 
 .search-img {
-    width: 50px;
-    height: 70px;
-    background-color: #08ab4b;
+  width: 50px;
+  height: 70px;
+  background-color: #08ab4b;
 }
 
 .search-info {
-    color: #fff;
+  color: #fff;
 }
 
 .search-info-span {
-    font-size: 13px;
-    color: #767462;
+  font-size: 13px;
+  color: #767462;
 }
 
 .search-view {
-    background-color: #07ab4c;
-    color: #fff;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    font-size: 16px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  background-color: #07ab4c;
+  color: #fff;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
