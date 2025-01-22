@@ -1,20 +1,64 @@
 .navbar {
   background-color: #262728;
 }
-
-.container-fluid {
-  color: red !important;
+.navbar   a{
+ font-size: 18px;
 }
-
+.navbar .h4 {
+  border-right: 3px solid #2f3032;
+  padding-right: 10px;
+}
 a {
-  color: #fff;
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+ul li a:hover {
+  color: #08ab4b !important;
 }
 
 .btn {
   background-color: #08ab4b !important;
   color: #fff !important;
 }
-
+.userdata {
+  background-color: #fff;
+  color: #262728;
+  padding: 0px 20px;
+  line-height: 37px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  user-select: none;
+}
+.userdata-submenu {
+  position: absolute;
+  background-color: #454648;
+  right: 0;
+  top: 50px;
+  z-index: 999;
+  width: 150px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  color: #fff;
+  border-radius: 8px;
+  user-select: none;
+}
+.submenu-datail {
+  padding: 5px 20px;
+}
+.submenu-datail:hover {
+  background-color: #555657;
+  color: #07ab4c;
+  border-radius: 8px;
+}
+.submenu-datail:last-child {
+  border-bottom: none;
+  color: red;
+}
 form {
   position: relative;
 }

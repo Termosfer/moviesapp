@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./login.css";
 import { IoClose } from "react-icons/io5";
 const Register = () => {
+ 
   return (
     <div className="login">
       <div className="d-flex gap-2 flex-column align-items-center pt-4  pb-3 form">
@@ -37,7 +38,7 @@ const Register = () => {
             placeholder="Password"
             className="py-2"
           />
-          <label htmlFor="password" className="pb-2 pt-3">
+           <label htmlFor="password" className="pb-2 pt-3">
             CONFIRM PASSWORD
           </label>
           <input
@@ -52,7 +53,7 @@ const Register = () => {
           <h4>
             Have an account?
             <Link to="/auth/login">
-               <span> Login</span>
+              <span> Login</span>
             </Link>{" "}
           </h4>
         </div>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { img_500 } from '../../api/api'
 import logo from "../../assets/logo.png"
 import "./recommend.css"

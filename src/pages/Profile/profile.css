@@ -1,0 +1,31 @@
+
+
+.profile-container {
+  background-color: #252628;
+  border-radius: 10px;
+}
+.profile-container form {
+  display: flex;
+  gap: 30px;
+}
+.profile-container form > div {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.profile-container form > div label {
+  color: #77797a;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+.profile-container form > div input {
+  padding: 6px 12px;
+  margin-bottom: 20px;
+}
+.profile-container form > div input {
+  padding: 6px 12px;
+}
+.profile-container form > div input::placeholder {
+    color: #fff;
+}

@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import { FaCircleChevronRight } from "react-icons/fa6";
-
-import Slider from '../../components/swiper/Slider'
-import { FaFacebookF, FaXTwitter, FaWhatsapp, FaFacebookMessenger, FaReddit, FaTelegram, FaAngleRight } from "react-icons/fa6";
-import { FaList, FaPlayCircle } from "react-icons/fa";
 import "./home.css"
-import Card from '../../components/card/Card';
-import { useGetTVshowsQuery, useGetMovieByNameQuery } from '../../service/moviesdata';
-import PopularMovies from '../../components/popularM/PopularMovies';
-import PopulatTv from '../../components/popularTv/PopulatTv';
-import Comingsoon from '../../components/comingsoon/Comingsoon';
+import {  useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { FaCircleChevronRight } from "react-icons/fa6";
+import { FaList, FaPlayCircle } from "react-icons/fa";
+import { FaFacebookF, FaXTwitter, FaWhatsapp, FaFacebookMessenger, FaReddit, FaTelegram, FaAngleRight } from "react-icons/fa6";
+import { useGetTVshowsQuery, useGetMovieByNameQuery } from '../../service/moviesdata';
+import Slider from "../../components/swiper/Slider";
+import Card from "../../components/card/Card"
+import PopularMovies from "../../components/popularM/PopularMovies"
+import PopulatTv from "../../components/popularTv/PopulatTv"
+import ComingSoon from "../../components/comingsoon/Comingsoon"
 
 const Home = () => {
   const navigate =  useNavigate()
@@ -31,7 +30,7 @@ const clickhandler = ()=>{
     <div className='main-div'>
       <div className='container-fluid px-5'>
         <section className='section'>
-          <Slider />
+          <Slider/>
           <div className='d-flex align-items-center justify-content-center gap-2 mt-3'>
             <div className='section__spans'>
               <span className='section-span my-0'>17.9k</span>
@@ -57,11 +56,13 @@ const clickhandler = ()=>{
           </div>
         </section>
         {selectedCategory === 'tvShows' && (
-          <Card data={tvShows} />
+         
+            <Card data={tvShows} />
         )
         }
         {selectedCategory === 'movies' && (
-          <Card data={movies} />
+          
+            <Card data={movies} />
         )}
 
         <section className='py-5'>
@@ -74,14 +75,15 @@ const clickhandler = ()=>{
             <div className='trending-div py-2 px-4'>Popular TV Shows <FaAngleRight />
             </div>
           </div>
-          <PopulatTv />
+          <PopulatTv/>
+
           <div className='d-flex align-items-center justify-content-between pt-5 pb-4'>
             <div className='trending-div py-2 px-4'>Coming Soon <FaAngleRight />
             </div>
               <div className='view' onClick={clickhandler}>View more <FaCircleChevronRight />
               </div>
           </div>
-          <Comingsoon />
+          <ComingSoon />
         </section>
       </div>
     </div>

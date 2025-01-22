@@ -13,6 +13,8 @@ import SearchPage from './pages/Search/SearchPage';
 import Errorpage from './pages/Error/Errorpage';
 import Login from './pages/Login/Login';
 import Register from './pages/Login/Register';
+import Profile from './pages/Profile/profile';
+import Watchlist from './pages/Watchlist/Watchlist';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path='/error' element={<Errorpage/>}/>
         <Route path='/auth/login' element={<Login/>}/>
         <Route path='/auth/register' element={<Register/>}/>
+        <Route path='/auth/login/profile' element={<Profile/>}/>
+        <Route path='/auth/login/watchlist' element={<Watchlist/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>
