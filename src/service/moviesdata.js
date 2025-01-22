@@ -28,6 +28,12 @@ export const movieApi = createApi({
     getPopularTvShows: builder.query({
       query: () => "tv/popular"
     }),
+    getNowPlayingMovies: builder.query({
+      query:(page)=>`/movie/now_playing?page=${page}`
+    }),
+    getNowPlayingTv: builder.query({
+      query:(page)=>`/tv/on_the_air?&page=${page}`
+    }),
     getUpcomingMovies: builder.query({
       query: (page) => `/movie/upcoming?page=${page}`
     }),
@@ -70,4 +76,4 @@ export const movieApi = createApi({
   }),
 })
 
-export const { useGetMovieByNameQuery, useGetTVshowsQuery, useGetPopularMoviesQuery, useGetPopularTvShowsQuery, useGetUpcomingMoviesQuery, useGetMovieDetailsQuery, useGetTvDetailsQuery, useGetCastsIdQuery, useGetRecommentIdQuery, useGetTvCastsIdQuery, useGetTvRecommentIdQuery, useGetMovieYoutubeIdQuery, useGetTvYoutubeIdQuery, useGetSearchIdQuery, useGetGenresMovieListQuery, useGetTvSeasonDetailsQuery, useGetTvSeasonsVideoQuery } = movieApi
+export const { useGetMovieByNameQuery, useGetTVshowsQuery, useGetPopularMoviesQuery, useGetPopularTvShowsQuery, useGetUpcomingMoviesQuery, useGetMovieDetailsQuery, useGetTvDetailsQuery, useGetCastsIdQuery, useGetRecommentIdQuery, useGetTvCastsIdQuery, useGetTvRecommentIdQuery, useGetMovieYoutubeIdQuery, useGetTvYoutubeIdQuery, useGetSearchIdQuery, useGetGenresMovieListQuery, useGetTvSeasonDetailsQuery, useGetTvSeasonsVideoQuery, useGetNowPlayingMoviesQuery, useGetNowPlayingTvQuery } = movieApi

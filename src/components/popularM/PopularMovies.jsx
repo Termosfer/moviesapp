@@ -1,4 +1,3 @@
-import React from 'react'
 import { useGetPopularMoviesQuery } from '../../service/moviesdata'
 import "../card/card.css"
 import logo from "../../assets/logo.png"
@@ -13,7 +12,7 @@ const PopularMovies = () => {
     return (
         <div className='row'>
             {
-               data && data.results.map((items) => {
+               data?.results.map((items) => {
                     return (
 
                         <div className="card " key={items.id} onClick={() => clickhandler(items.id)}>

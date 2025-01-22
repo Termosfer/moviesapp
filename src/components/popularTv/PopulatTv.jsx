@@ -1,4 +1,3 @@
-import React from 'react'
 import "../card/card.css"
 import logo from "../../assets/logo.png"
 import { img_500 } from '../../api/api'
@@ -13,7 +12,7 @@ const clickhandler = (id) => {
     return (
         <div className='row'>
             {
-                data && data.results.map((items) => {
+                 data?.results.map((items) => {
                     return (
 
                         <div className="card " key={items.id} onClick={() => clickhandler(items.id)}>

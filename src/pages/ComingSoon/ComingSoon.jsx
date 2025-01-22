@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FaAngleRight, FaFilter } from 'react-icons/fa6'
 import logo from "../../assets/logo.png"
 import "./comingsoon.css"
@@ -29,7 +29,7 @@ const clickhandler= (id)=>{
                     totalPages={data?.total_pages} />
                 <div className='row'>
                     {
-                        data && data.results.map((items) => {
+                         data?.results.map((items) => {
                             return (
 
                                 <div className="card " key={items.id} onClick={() => clickhandler(items.id)}>
