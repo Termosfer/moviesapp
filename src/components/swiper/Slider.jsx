@@ -27,8 +27,8 @@ const Slider = () => {
   } = useGetGenresMovieListQuery();
   const handleClick = (id) => {
     navigate(`details/${id}`);
+    window.scrollTo(0, 0);
   };
-  console.log(movieData, "asd");
 
   if (isMovieLoading) {
     return (

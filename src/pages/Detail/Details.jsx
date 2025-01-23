@@ -89,13 +89,15 @@ const Details = () => {
   const score = dat?.vote_average ?? 0;
   const filterMovieYoutube =
     movieYoutubeData?.results.filter(
-      (movie) => movie.type === "Trailer" || movie.type === "Featurette"
+      (movie) => movie.type === "Trailer" /* || movie.type === "Featurette" */
     ) ?? [];
   const filterTvYoutube =
     tvYoutubeData?.results.filter(
       (tv) =>
-        tv.type === "Trailer" || tv.type === "Featurette" || tv.type === "Clip"
+        tv.type === "Trailer" /* || tv.type === "Featurette" || tv.type === "Clip" */
     ) ?? [];
+    console.log(filterTvYoutube, "data")
+    console.log(filterMovieYoutube, "movie")
   useEffect(() => {
     if (movieData && !tvData) {
       setIsMovie(true);

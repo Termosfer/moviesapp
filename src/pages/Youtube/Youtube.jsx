@@ -34,7 +34,7 @@ const Youtube = ({ active, setActive, isMovie, movieYoutubeData, tvYoutubeData }
 
                     <div className={`modal-div ${closing ? 'closing' : ''}`}>
                         {
-                            data?.slice(0, 1).map((item, index) => {
+                            data?.slice(0, 1).map((item) => {
                                 return (
 
 

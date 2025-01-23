@@ -7,6 +7,7 @@ const Comingsoon = () => {
   const navigate = useNavigate();
   const clickhandler = (id) => {
     navigate(`/details/${id}`);
+    window.scrollTo(0, 0);
   };
   const { data, isLoading, error } = useGetUpcomingMoviesQuery(2);
   return (

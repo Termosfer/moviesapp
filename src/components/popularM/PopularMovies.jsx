@@ -7,6 +7,7 @@ const PopularMovies = () => {
     const navigate = useNavigate()
     const clickhandler = (id) => {
         navigate(`/details/${id}`)
+        window.scrollTo(0, 0);
     }
     const { data, isLoading, error } = useGetPopularMoviesQuery()
     return (

@@ -7,6 +7,7 @@ const Card = ({ data }) => {
     const navigate = useNavigate()
     const clickhandler = (id) => {
         navigate(`/details/${id}`)
+        window.scrollTo(0, 0);
     }
     return (
         <div className='row'>

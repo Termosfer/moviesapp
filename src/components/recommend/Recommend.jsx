@@ -8,6 +8,7 @@ const Recommend = ({ data, tvdata, isMovie }) => {
     const navigate = useNavigate()
     const clickhandler = (id) => {
         navigate(`/details/${id}`)
+        window.scrollTo(0, 0);
     }
     return (
         <div className='row recommend pb-5'>

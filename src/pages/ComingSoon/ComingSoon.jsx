@@ -16,6 +16,7 @@ const ComingSoon = () => {
     }
 const clickhandler= (id)=>{
     navigate(`/details/${id}`)
+    window.scrollTo(0, 0);
 }
     return (
         <div className="main-div pb-5">
