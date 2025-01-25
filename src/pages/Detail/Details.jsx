@@ -1,11 +1,11 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./detail.css";
 import { original_img } from "../../api/api";
 import { IoMdVideocam } from "react-icons/io";
-import { FaAngleRight, FaPlay, FaPlus } from "react-icons/fa";
+import { FaAngleRight, FaMinus, FaPlay, FaPlus } from "react-icons/fa";
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
-import { useParams } from "react-router-dom";
-import Recommend from "../../components/recommend/Recommend"
+import { useNavigate, useParams } from "react-router-dom";
+import Recommend from "../../components/recommend/Recommend";
 import {
   useGetCastsIdQuery,
   useGetMovieDetailsQuery,
@@ -22,7 +22,9 @@ import Dropdown from "../../components/dropdown/Dropdown";
 const Details = () => {
   const { id } = useParams();
   const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
   const [isMovie, setIsMovie] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(false);
   const [color, setColor] = useState("#07ab4c");
   const {
     data: movieData,
@@ -68,8 +70,6 @@ const Details = () => {
     error: tvYoutubeError,
   } = useGetTvYoutubeIdQuery(id);
 
-
-
   const dat = isMovie ? movieData : tvData;
   const backdropPath = dat?.backdrop_path || dat?.poster_path;
   const posterPath = dat?.poster_path || "";
@@ -94,10 +94,11 @@ const Details = () => {
   const filterTvYoutube =
     tvYoutubeData?.results.filter(
       (tv) =>
-        tv.type === "Trailer" /* || tv.type === "Featurette" || tv.type === "Clip" */
+        tv.type ===
+        "Trailer" /* || tv.type === "Featurette" || tv.type === "Clip" */
     ) ?? [];
-    console.log(filterTvYoutube, "data")
-    console.log(filterMovieYoutube, "movie")
+  console.log(filterTvYoutube, "data");
+  console.log(filterMovieYoutube, "movie");
   useEffect(() => {
     if (movieData && !tvData) {
       setIsMovie(true);
@@ -118,7 +119,25 @@ const Details = () => {
   const clickHandler = () => {
     setActive(!active);
   };
-
+  const favorites = JSON.parse(localStorage.getItem("watchlist")) || [];
+  const openHandler = () => {
+    setOpen(true);
+    
+      const chehkData = favorites.find(fav=>fav.id === dat.id)
+      if (!chehkData) {
+        favorites.push(dat);
+        localStorage.setItem("watchlist", JSON.stringify(favorites));
+        setIsFavorite(true);
+      }else {
+        console.log("This movie is already in your watchlist");
+      }
+  };
+  const removeHandle = ()=>{
+  const updatedFavorite = favorites.filter(fav => fav.id !== dat.id)
+  localStorage.setItem("watchlist", JSON.stringify(updatedFavorite))
+  setOpen(false);
+  setIsFavorite(false);
+  }
   return (
     <>
       <div className="main-div">
@@ -221,9 +240,22 @@ const Details = () => {
                   <FaPlay className="icon" />
                   Watch List
                 </button>
-                <button className="py-2  details-btn btn2">
-                  <FaPlus className="icon" /> Add to favorite
-                </button>
+                {open ? (
+                  <button
+                    className="py-2  details-btn btn2"
+                    onClick={removeHandle}
+                  >
+                    <FaMinus className="icon" /> Remove from favorite
+                  </button>
+                ) : (
+                  <button
+                    className="py-2  details-btn btn2"
+                    onClick={openHandler}
+                  >
+                    <FaPlus className="icon" /> Add to favorite
+                  </button>
+                )}
+
                 <div className=" py-3">
                   <span className="text-light">10 / 7 voted</span>
                   <div className="voted"></div>
@@ -250,11 +282,11 @@ const Details = () => {
               You may also like <FaAngleRight />
             </div>
           </div>
-            <Recommend
-              data={recommend}
-              tvdata={tvRecommentData}
-              isMovie={isMovie}
-              />
+          <Recommend
+            data={recommend}
+            tvdata={tvRecommentData}
+            isMovie={isMovie}
+          />
         </div>
       </div>
     </>

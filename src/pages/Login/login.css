@@ -56,13 +56,16 @@
 .form_forgot {
   color: #219a4e;
 }
-form input::placeholder {
-  padding-left: 10px;
-  color: #656a74;
-}
+/* form input::placeholder {
+  
+  outline: none;
+} */
 form input {
   background-color: #454647;
+  outline: none;
   border: none;
+  padding-left: 10px;
+  color: #fff;
 }
 form .login-btn {
   background-color: #219a4e;

@@ -2,3 +2,6 @@ export const TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWE0Y2JmZTAzMjliYjQyNTQ5Y
 
 export const original_img = "https://image.tmdb.org/t/p/original"
 export const img_500 = "https://image.tmdb.org/t/p/w500"
+
+
+export const baseUrl = "https://35.173.133.91:8443"

@@ -1,44 +1,56 @@
-import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { IoClose } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { useCreateUserMutation, useGetUserMutation } from "../../service/login";
+import toast, { Toaster } from "react-hot-toast";
 const Login = ({ setShow, show }) => {
-  const navigate = useNavigate()
   const [closing, setClosing] = useState(false);
   const [currentForm, setCurrentForm] = useState("login");
   const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [newUser, { isLoading, error }] = useCreateUserMutation();
   const [user, { isLoading: userIsLoading, error: userError }] =
     useGetUserMutation();
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    await newUser({ name, email, password, avatar }).unwrap();
-    setName("");
-    setEmail("");
-    setPassword("");
-    setAvatar("");
-    setCurrentForm("login");
+    try {
+      await newUser({ name, surname, email, password }).unwrap();
+      setCurrentForm("login");
+      toast.success("Successfully registered in!");
+      setName("");
+      setSurname("");
+      setEmail("");
+      setPassword("");
+      
+      setTimeout(() => {
+        setShow(false); 
+      }, 400);
+    } catch (error) {
+      toast.error("This didn't work.")
+      
+    }
   };
   const handlerSubmit = async (e) => {
     e.preventDefault();
     try {
       await user({ email, password }).unwrap();
+      toast.success("Successfully logged in!");
       setEmail("");
       setPassword("");
-      setClosing(true); // Kapanma animasyonunu başlat
+      setClosing(true);
       setTimeout(() => {
-        setShow(false); // Modal'ı kapat
-        setClosing(false); // Kapanma animasyonunu durdur
-      }, 400); // Kapanma animasyonunun süresi
+        setShow(false);
+        setClosing(false);
+      }, 400);
     } catch (error) {
-      console.error("Login failed:", error);
+      toast.error("Invalid username or password")
+      
     }
   };
- 
+
   {
     isLoading && userIsLoading && <p>Loading...</p>;
   }
@@ -74,6 +86,7 @@ const Login = ({ setShow, show }) => {
 
   return (
     <div className={`login ${closing ? "closing" : ""}`}>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="d-flex gap-2 flex-column align-items-center pt-4  pb-3 form">
         <div className="header text-center">
           <h4>
@@ -117,7 +130,7 @@ const Login = ({ setShow, show }) => {
         ) : (
           <form action="" className="pb-3 px-4" onSubmit={submitHandler}>
             <label htmlFor="text" className="pb-2">
-              YOUR NAME
+              NAME
             </label>
             <input
               type="text"
@@ -126,6 +139,17 @@ const Login = ({ setShow, show }) => {
               className="py-2"
               value={name}
               onChange={(e) => setName(e.target.value)}
+            />
+            <label htmlFor="text" className="pb-2 pt-3">
+              SURNAME
+            </label>
+            <input
+              type="text"
+              name="text"
+              placeholder="Surname"
+              className="py-2"
+              value={surname}
+              onChange={(e) => setSurname(e.target.value)}
             />
             <label htmlFor="email" className="pb-2 pt-3">
               EMAIL ADDRESS
@@ -148,17 +172,7 @@ const Login = ({ setShow, show }) => {
               className="py-2"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
-            <label htmlFor="password" className="pb-2 pt-3">
-              CONFIRM PASSWORD
-            </label>
-            <input
-              type="text"
-              name="password"
-              placeholder="Confirm Password"
-              className="py-2"
-              value={avatar}
-              onChange={(e) => setAvatar(e.target.value)}
+              minLength={8}
             />
             <button className="py-2 login-btn mt-4">Register</button>
           </form>

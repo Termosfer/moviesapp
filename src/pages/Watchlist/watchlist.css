@@ -26,3 +26,12 @@
   color: #08b146;
   scale: 1.1;
 }
+.wathclistName{
+  color: #08b146;
+}
+.watchlist .date{
+  font-size: 14px;
+}
+.watchlist .overview{
+  color: #767462;
+}

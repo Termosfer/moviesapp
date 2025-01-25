@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, Links, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./header.css";
 import {
@@ -15,9 +15,10 @@ import { useGetProfileQuery } from "../../service/login";
 import { FaUserCircle } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoLogOutOutline } from "react-icons/io5";
-
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [show, setShow] = useState(false);
@@ -28,18 +29,18 @@ const Header = () => {
     query: search,
     page: currentpage,
   });
-  /* const { data: movieData, isLoading: isMovieLoading, error: movieError } = useGetMovieDetailsQuery(id);
-    const { data: tvData, isLoading: isTvLoading, error: tvError } = useGetTvDetailsQuery(id) */
+
   const { data: userData, isLoading: isUserDataLoading } = useGetProfileQuery();
-  console.log(userData, "user");
-
-  useEffect(() => {
+  /*   useEffect(() => {
     if (!isUserDataLoading && userData) {
-      setUserName(userData.name); // Veri geldiğinde kullanıcı adını al
+      setUserName(userData.name); 
     }
-  }, [userData, isUserDataLoading]);
+  }, [userData, isUserDataLoading]); */
 
-console.log(userName, "username")
+  /* if (isUserDataLoading) {
+  return <span>loading...</span>
+} */
+
   const clickHandler = () => {
     navigate(`searchpage?query=${search}&page=${currentpage}`);
     setSearch("");
@@ -53,28 +54,32 @@ console.log(userName, "username")
     e.preventDefault();
     setShow(true);
   };
-const clickUserData = ()=>{
-    setShowUserMenu(!showUserMenu)
-}
-const removeHandler = ()=>{
-    localStorage.removeItem("token")
-    setShowUserMenu(false)
-    navigate("/")
-}
-  console.log(showUserMenu, "asd");
+  const clickUserData = () => {
+    setShowUserMenu(!showUserMenu);
+  };
+  const handlerProfile = (id) => {
+    navigate(`/auth/login/profile/${id}`);
+  };
+  const removeHandler = () => {
+    dispatch(localStorage.removeItem("token"));
+    navigate("/");
+    setShowUserMenu(false);
+  };
 
- 
+  console.log(userData, "user");
+  console.log(userName, "username");
+  console.log(showUserMenu, "asd");
   return (
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid px-5">
           <Link to="/" className="d-flex align-items-center gap-2">
-            <img src={logo} alt="logo" width={40} height={40}/>
+            <img src={logo} alt="logo" width={40} height={40} />
             <h4 className="h4">FreeMoviesWatch.cc</h4>
           </Link>
           <ul className="navbar-nav m-auto  mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active"  to="/">
+              <Link className="nav-link active" to="/">
                 Home
               </Link>
             </li>
@@ -99,17 +104,33 @@ const removeHandler = ()=>{
               onChange={(e) => setSearch(e.target.value)}
             />
             {userData ? (
-              <div className=" userdata" onClick={clickUserData}>{userName}
-              {
-                showUserMenu && (
-                    <div className="userdata-submenu">
-                    <Link to="/auth/login/profile" className="d-flex align-items-center gap-1 submenu-datail" ><FaUserCircle />Profile</Link>
-                    <Link to="/auth/login/watchlist" className="d-flex align-items-center gap-1 submenu-datail"><FaRegHeart />Watchlist</Link>
-                    <Link className="d-flex align-items-center gap-1 submenu-datail" onClick={removeHandler}><IoLogOutOutline />Logout</Link>
+              <div className=" userdata" onClick={clickUserData}>
+                {userData.name}
+                {showUserMenu && (
+                  <div className="userdata-submenu">
+                    <div
+                      onClick={() => handlerProfile(userData.id)}
+                      className="d-flex align-items-center gap-1 submenu-datail"
+                    >
+                      <FaUserCircle />
+                      Profile
+                    </div>
+                    <Link
+                      to="/auth/login/watchlist"
+                      className="d-flex align-items-center gap-1 submenu-datail"
+                    >
+                      <FaRegHeart />
+                      Watchlist
+                    </Link>
+                    <Link
+                      className="d-flex align-items-center gap-1 submenu-datail"
+                      onClick={removeHandler}
+                    >
+                      <IoLogOutOutline />
+                      Logout
+                    </Link>
                   </div>
-                )
-              }
-             
+                )}
               </div>
             ) : (
               <button className="btn" type="submit">

@@ -1,0 +1,23 @@
+.filter-section {
+  border: 1px solid #262729;
+  background-color: #262729;
+}
+.radio {
+  width: 15px;
+  height: 15px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  padding: 4px 15px;
+  border-radius: 30px;
+  border: none;
+}
+.filter-btn .search {
+  font-size: 16px;
+}
+.filter-btn.green {
+  background-color: #07ab4c;
+  color: #fff;
+}

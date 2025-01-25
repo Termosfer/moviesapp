@@ -1,38 +1,45 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
+import { baseUrl } from "../api/api";
 const getToken = () => localStorage.getItem("token");
 export const login = createApi({
   reducerPath: "login",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.escuelajs.co/api/v1",
+    baseUrl: `${baseUrl}`,
     prepareHeaders: (headers) => {
       const apiKey = getToken();
       if (apiKey) {
         headers.set("Authorization", `Bearer ${apiKey}`);
       }
-
+      
       return headers;
     },
   }),
-
+  
   endpoints: (builder) => ({
     createUser: builder.mutation({
       query: (newUser) => ({
-        url: "/users",
+        url: "/registration",
         method: "POST",
         body: newUser,
       }),
     }),
     getUser: builder.mutation({
       query: (user) => ({
-        url: "/auth/login",
+        url: "/api/auth/login",
         method: "POST",
         body: user,
+      }),
+      getUpdateUser:builder.mutation({
+        query:(user)=>({
+          url:`api/customers/update/`,
+          methot:"PUT",
+          body:user
+        })
       }),
       async onQueryStarted(_, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          const token = data?.access_token; 
+          const token = data?.accessToken; 
           if (token) {
            
             localStorage.setItem("token", token);
@@ -44,7 +51,7 @@ export const login = createApi({
     }),
     getProfile: builder.query({
       query: () => ({
-        url: "/auth/profile", 
+        url: "/api/customers/info", 
       }),
     }),
   }),
